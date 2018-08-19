@@ -1,10 +1,11 @@
 const Eris = require('eris')
 const fetch = require('node-fetch')
 let token, prefix
-if(require('./config.json') != undefined) {
-    token = require('./config.json').token
-    prefix = require('./config.json').prefix
-} else {
+try {
+    let config = require('./config.json')
+    token = config.token
+    prefix = config.prefix
+} catch(e) {
     token = process.env.TOKEN
     prefix = process.env.PREFIX
 }

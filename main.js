@@ -49,7 +49,12 @@ client.on('messageCreate', async (message) => {
 
 client.connect()
 
+
 var http = require("http");
+
+http.createServer((req, res) => {
+    res.write('Nothing here')
+}).listen(process.env.PORT)
 setInterval(function() {
     http.get("http://fountain-bot.herokuapp.com");
 }, 300000); // every 5 minutes (300000)
